@@ -6,17 +6,13 @@ const port=7777;
 
 // App.get only handle GET call to /user
 
-app.get("/user",(req,res)=>{
+app.get("/user/:userId/:name/:password",(req,res)=>{
+  console.log(req.params);
+  
   res.send({firstname:"NIDHI",lastname:"MAURYA"});
 })
 
-app.post("/user",(req,res)=>{
-  res.send("data save successfully save to database")
-})
 
-app.delete("/user",(req,res)=>{
-  res.send("deleted successfully");
-})
 
 app.use("/home",(req,res)=>{
   res.send("this is my home page");
