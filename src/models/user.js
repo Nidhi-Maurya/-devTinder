@@ -12,7 +12,10 @@ const userSchema=new mongoose.Schema({
     type:String,
   },
   password:{
-    type:Number,
+    type:String,
+  },
+  age:{
+    type:Number
   },
   gender:{
     type:String
@@ -20,3 +23,6 @@ const userSchema=new mongoose.Schema({
 
 
 })
+
+
+module.exports=mongoose.model("User",userSchema);

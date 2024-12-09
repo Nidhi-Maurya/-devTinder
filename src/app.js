@@ -6,22 +6,18 @@ const app=express();
 const User=require("./models/user");
 const port=7777;
 
-app.post("/signup", async (req,res)=>{
-// creating a new instance of the User Model
-const user=new User({
-  firstName:"Nidhi",
-  lastName:"Maurya",
-  email:"maurya@gmail.com",
-  password:"maurya@123",
-});
 
-await user.save();
-res.send("USER ADDED SUCCESSFULLY!!!");
+app.use(express.json());
 
+app.post("/signup",async(req,res)=>{
 
+  console.log(req.body);
+    // Creating a new instance of the user Model
+    const user=new User(req.body);
+    await user.save();
+    res.send("User data saved successfully!!")
 
-});
-
+ })
 
 
  
