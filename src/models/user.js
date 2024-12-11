@@ -29,11 +29,11 @@ const userSchema=new mongoose.Schema({
     required:true,
     lowercase:true,
     trim:true,
-    validate(value){
-      if(!validator.isStrongPassword(value)){
-        throw new Error(" password is to weak" + value);
-      }
-    }
+    // validate(value){
+    //   if(!validator.isStrongPassword(value)){
+    //     throw new Error(" password is to weak" + value);
+    //   }
+    // }
   },
   age:{
     type:Number,
