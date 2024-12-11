@@ -1,6 +1,6 @@
 
 const mongoose=require('mongoose');
-
+const validator=require("validator");
 const userSchema=new mongoose.Schema({
   firstName:{
     type:String,
@@ -14,14 +14,26 @@ const userSchema=new mongoose.Schema({
   email:{
     type:String,
     required:true,
-    unique:true
+    unique:true,
+    trim: true,
+    validate(value){
+      if(!validator.isEmail(value)){
+        throw new Error("Invalid email address" +value);
+      }
+    }
+
     // unique is used to not used same email id
   },
   password:{
     type:String,
     required:true,
     lowercase:true,
-    trim:true
+    trim:true,
+    validate(value){
+      if(!validator.isStrongPassword(value)){
+        throw new Error(" password is to weak" + value);
+      }
+    }
   },
   age:{
     type:Number,
