@@ -45,7 +45,7 @@ const userSchema=new mongoose.Schema({
     type:String,
     default:"This is a default description of the user"
   },
-  slills:{
+  skills:{
     type:[String],
   }
 
