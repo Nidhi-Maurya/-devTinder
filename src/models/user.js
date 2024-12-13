@@ -3,6 +3,7 @@ const { JsonWebTokenError } = require('jsonwebtoken');
 const mongoose=require('mongoose');
 const validator=require("validator");
 const bcrypt=require("brycpt");
+const jwt=require("jsonwebtoken")
 const userSchema=new mongoose.Schema({
   firstName:{
     type:String,
