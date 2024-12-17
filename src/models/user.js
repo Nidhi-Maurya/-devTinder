@@ -2,7 +2,7 @@
 const { JsonWebTokenError } = require('jsonwebtoken');
 const mongoose=require('mongoose');
 const validator=require("validator");
-const bcrypt=require("brycpt");
+const bcrypt=require('brycpt');
 const jwt=require("jsonwebtoken")
 const userSchema=new mongoose.Schema({
   firstName:{
@@ -85,5 +85,6 @@ userSchema.methods.validtePassword= async function(passwordInputByUser){
 
   const isPassword=await bcrypt.compare("password",passwordHash);
 }
+
 
 module.exports=mongoose.model("User",userSchema);
