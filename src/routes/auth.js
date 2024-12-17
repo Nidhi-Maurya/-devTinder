@@ -60,6 +60,13 @@ authRouter.post("/login",async(req,res)=>{
   } catch (error) {
     res.status(404).send("user not found"+error.message);
   }
+});
+
+authRouter.post("/logout",async(req,res)=>{
+  res.cookies("token",null,{
+    express:new Date(Date.now())
+  });
+  res.send("logOut Successfully");
 })
 
 
